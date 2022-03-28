@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <title>Registration Form</title>
+        <style>
+            * {
+                font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+            .registrationBody {
+                border: none;
+                width: 40%;
+                height:70%;
+            }
+            .mainHeader {
+                font-weight: bold;
+                margin-left: 2rem;
+            }
+            h1 {
+                margin-top:1px;
+                text-align: center;
+            }
+            div {
+                border: 2px solid black;
+                margin-top:0px;
+                padding:20px;
+                text-align: center;   
+            }
+            .input {
+                margin-left:3rem;
+            }
+        </style>
+    </head>
+    <body>
+        <form action = "#"> 
+            <fieldset class="registrationBody">
+                <div>
+                    <h1 >Registration Form</h1>
+                    <br><br>
+                    <label class="mainHeader">First Name:  </label>
+                    <input type = "text" name="firstName" id="firstName" placeholder="Enter Your First Name" >
+                    <br><br><br>
+                    <label class="mainHeader">Last Name:  </label>
+                    <input type = "text" name="lastName" id="lastName" placeholder="Enter Your Last Name" >
+                    <br><br><br>
+                    <label class="mainHeader">Address:  </label>
+                    <input type = "text" name="address" id="address" placeholder="Enter Your Address" >
+                    <br><br><br>
+                    <label class="mainHeader">Gender:  </label>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                    <br><br><br>
+                    <label class="mainHeader">Email Id:  </label>
+                    <input type = "email" name="email" id="email" placeholder="Enter E-mail Address" >
+                    <br><br><br>
+                    <label class="mainHeader">Mobile:  </label>
+                    <input type = "number" name="mobileno" id="mobileno">
+                    <br><br><br>
+                    <label class="mainHeader">Course:  </label>
+                    <select name="courses" id="courses" required>
+                        <option value="HTML">HTML</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="DataStructure">Data Structure</option>
+                        <option value="CPP">Fundamentals Of C++</option>
+                    </select>
+                    <br><br><br>
+                    <input type="submit" class="submitButton" value="Submit" style="padding: 10px; margin-left: 10px;" onclick="buttonClicked()">
+                    <input type="submit" class="resetButton" value="Reset" style="padding: 10px;">
+                </div>
+            </fieldset>
+        </form>
+        </body>
+        <script>
+           var firstName = document.getElementById("firstName");
+           var lastName  = document.getElementById("lastName");
+           var gender = document.getElementsByName("gender");
+           var address = document.getElementById("address");
+           var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+           var email = document.getElementById("email");
+           var mobileno = document.getElementById("mobileno");
+           function buttonClicked() {
+
+               if(firstName.value == "")
+                 alert("Enter First Name");
+               if(lastName.value == "")
+                 alert("Enter Last Name");
+               if(address.value == "")
+                 alert("Please Enter Your Address");
+               if(!gender[0].checked && !gender[1].checked)
+                 alert("Please Select Your Gender");
+               
+               if(email.value == "")
+                 alert("Enter email address");
+               else {
+                   if(!email.value.match(validRegex))
+                     alert("Enter Valid Email Address");
+               }
+               if(mobileno.value == "")
+                alert("Enter your Mobile Number");
+               else {
+                   if(mobileno.value.length != 10)
+                     alert(mobileno.value + " is not a 10 digit number");
+               }
+                 
+               
+           }
+
+        </script>
+</html>
